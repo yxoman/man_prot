@@ -6,13 +6,16 @@ public class CameraRotation : MonoBehaviour
 
     private Transform mainCamera;
 
+
     void Start()
     {
-        mainCamera = Camera.main.transform;
+        mainCamera = Camera.main.transform.parent;
     }
 
     void Update()
     {
+//        mainCamera.forward = gravityJoystick.Axis;
+//        mainCamera.eulerAngles = new Vector3(mainCamera.eulerAngles.x, 0f, 0f);
 //        if (Input.GetMouseButtonDown(0))
 //        {
 //            startMousePosition = Input.mousePosition;
@@ -21,9 +24,10 @@ public class CameraRotation : MonoBehaviour
 //        if (Input.GetMouseButton(0))
 //        {
 //            if (Vector3.Distance(Input.mousePosition, startMousePosition) > 1f)
-//                camera.up = Input.mousePosition - startMousePosition;
+//                
 //
-//            camera.eulerAngles = new Vector3(0f, -90f, camera.eulerAngles.z);
+        mainCamera.up = -Physics.gravity;
+//        mainCamera.eulerAngles = new Vector3(0f, -90f, mainCamera.eulerAngles.z);
 //        }
     }
 }
